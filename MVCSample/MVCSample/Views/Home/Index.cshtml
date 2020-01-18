@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#fetch').click(function () {
+                $.ajax({
+                    url: "/Home/mypage",
+                    contentType: "application/json",
+                    type : "GET",
+                    success: function (data) {
+                        windows.location.href="Home/Success"
+                    }
+                })
+            });
+            $('#Register').click(function () {
+                window.location.href = "/Home/Register";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="mycontent">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Fetch Student Details</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <a class="btn btn-primary" id="fetch">
+                            <i class="glyphicon-log-in">FETCH</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
